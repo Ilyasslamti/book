@@ -1,255 +1,409 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Don't Be Gullible in Your Relationships with Others - Your Guide to Freedom</title>
+    <title>Don't Be Gullible in Your Relationships with Others</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
         :root {
-            --primary-color: #007bff;
-            --secondary-color: #28a745;
-            --background-color: #f8f9fa;
-            --text-color: #343a40;
-            --white-color: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
-
+        
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            color: var(--text);
             line-height: 1.6;
+            background-color: #f9f9f9;
         }
-
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
         .container {
-            max-width: 960px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Book Showcase */
+        .book-showcase {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .book-cover {
+            flex: 1;
+            text-align: center;
             padding: 20px;
         }
-
-        .header {
-            text-align: center;
-            padding: 50px 0;
-            background: linear-gradient(135deg, var(--primary-color), #0056b3);
-            color: var(--white-color);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .book-section {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .book-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        .book-image img {
+        
+        .book-cover img {
             max-width: 100%;
-            height: auto;
             border-radius: 10px;
-            box-shadow: 0 8px 20px var(--shadow-color);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
-
-        .book-content {
-            flex: 2;
-            min-width: 300px;
+        
+        .book-cover img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
-
-        .book-content h2 {
-            font-size: 2em;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        
+        .book-details {
+            flex: 1;
+            padding: 20px;
         }
-
-        .book-content p {
-            font-size: 1.1em;
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--accent);
             margin-bottom: 20px;
         }
-
-        .features-list {
-            list-style: none;
-            padding-left: 20px;
-        }
-
-        .features-list li {
-            position: relative;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .features-list li::before {
-            content: '✓';
-            color: var(--secondary-color);
-            font-weight: bold;
-            position: absolute;
-            left: -20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--white-color);
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: transform 0.3s, background-color 0.3s;
-            box-shadow: 0 5px 15px var(--shadow-color);
-            margin-top: 30px;
-        }
-
-        .cta-button:hover {
-            background-color: #218838;
-            transform: translateY(-3px);
-        }
-
+        
+        /* Testimonials */
         .testimonials {
-            background-color: var(--white-color);
-            padding: 50px 20px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 80px 0;
+            background-color: white;
         }
-
-        .testimonials h2 {
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-size: 2em;
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
-
+        
         .testimonial-card {
-            background-color: var(--background-color);
-            padding: 20px;
+            background: var(--light);
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            margin: 20px 0;
+            box-shadow: var(--shadow);
         }
-
-        .testimonial-card p {
+        
+        .testimonial-text {
             font-style: italic;
-            font-size: 1.1em;
+            margin-bottom: 20px;
         }
-
-        .testimonial-card h4 {
-            margin-top: 10px;
-            color: var(--primary-color);
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
         }
-
-        .footer {
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
             text-align: center;
-            padding: 20px 0;
-            font-size: 0.9em;
-            color: #6c757d;
         }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            .header p {
-                font-size: 1em;
-            }
-            .book-section {
+        
+        .cta h2 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .btn-large {
+            padding: 20px 60px;
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .book-showcase {
                 flex-direction: column;
-                text-align: center;
             }
-            .book-content h2 {
-                font-size: 1.5em;
+            
+            .hero h1 {
+                font-size: 2.5rem;
             }
-            .cta-button {
-                font-size: 1.1em;
-                padding: 12px 25px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
             }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        .guarantee {
+            background-color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .guarantee-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent);
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="header">
-        <h1>Don't Be Gullible in Your Relationships with Others</h1>
-        <p>Your Secret Guide to Breaking the Cycle of Pain and Reclaiming Your Power.</p>
-        <a href="https://1y1k0k-by.myshopify.com/products/dont-be-gullible-in-your-relationships-with-others?variant=51116375474489" class="cta-button">Start Your Transformation Now</a>
-    </div>
-
-    <div class="book-section">
-        <div class="book-image">
-            <img src="https://i.suar.me/3AaZG/m" alt="Book Cover: Don't Be Gullible in Your Relationships with Others">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">SmartRelationships</div>
+            <a href="#purchase" class="btn">Buy Now</a>
         </div>
-        <div class="book-content">
-            <h2>Are You Emotionally Drained?</h2>
-            <p>
-                Tired of being the victim? Do you wake up every day feeling your energy drained, your heart wounded, and your kindness exploited? Do you feel stuck in a vicious cycle of disappointments with friends, family, and life partners?
-            </p>
-            <p>
-                This isn't a coincidence—it's a pattern you can break forever. This book isn't just words; it's your secret guide to breaking the cycle of pain. It's not designed to teach you how to survive, but how to triumph.
-            </p>
-            <a href="https://1y1k0k-by.myshopify.com/products/dont-be-gullible-in-your-relationships-with-others?variant=51116375474489" class="cta-button">Get Your Copy Now</a>
-        </div>
-    </div>
+    </header>
 
-    <div class="book-content">
-        <h2>What Will You Discover Inside This Book?</h2>
-        <p>
-            Inside this book, you'll find 10 secrets to:
-        </p>
-        <ul class="features-list">
-            <li>Understanding the Victim Mentality: How it's formed, its core beliefs, and how to recognize it in yourself and others.</li>
-            <li>Healing from Trauma: Practical strategies to let go of past pain and start from the "here and now."</li>
-            <li>Dealing with Others: How to wisely manage conflicts and avoid falling into the trap of emotional blackmail.</li>
-            <li>Building Self-Confidence: Practical lessons to evaluate yourself and avoid destructive comparisons.</li>
-            <li>Breaking Free from People's Opinions: Understanding the "18-40-60 Rule" and how to ignore others' judgments to become important in your own eyes.</li>
-        </ul>
-    </div>
-
-    <div class="testimonials">
-        <h2>What Readers Are Saying</h2>
-        <div class="testimonial-card">
-            <p>"This book completely changed my perspective on relationships. I finally feel like I can take control of my life."</p>
-            <h4>- Reader from UAE</h4>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Stop Being the Victim in Your Relationships</h1>
+            <p>Break the cycle of pain and transform yourself from a victim into the true leader of your life</p>
+            <a href="#purchase" class="btn btn-large">Get Your Copy Now</a>
         </div>
-        <div class="testimonial-card">
-            <p>"Deep and impactful style, blending psychological analysis with practical advice. I read it in one night."</p>
-            <h4>- Reader from Saudi Arabia</h4>
-        </div>
-        <div class="testimonial-card">
-            <p>"It gave me the courage to stop blaming others and start making changes. I highly recommend it."</p>
-            <h4>- Reader from Morocco</h4>
-        </div>
-    </div>
-</div>
+    </section>
 
-<div class="footer">
-    <p>&copy; 2025 The Manager Project. All Rights Reserved.</p>
-</div>
+    <!-- Book Showcase -->
+    <section class="book-showcase">
+        <div class="container">
+            <div class="book-cover">
+                <img src="https://www.raed.net/img?id=1413382" alt="Don't Be Gullible in Your Relationships with Others">
+            </div>
+            <div class="book-details">
+                <h2>Don't Be Gullible in Your Relationships with Others</h2>
+                <p>Are you tired of being the victim? You wake up every day feeling your energy drained, your heart wounded, and your kindness exploited. Do you feel stuck in a vicious cycle of disappointments with friends, family, and life partners?</p>
+                <p>This isn't a coincidence—it's a pattern you can break forever.</p>
+                <div class="price">$12.99</div>
+                <a href="https://1y1k0k-by.myshopify.com/products/dont-be-gullible-in-your-relationships-with-others?variant=51116375474489" class="btn">Purchase Now</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="text-center">What You'll Discover Inside</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Identify Patterns</h3>
+                    <p>Understand why you constantly attract the wrong people, and how to stop this pattern for good.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Reclaim Self-Worth</h3>
+                    <p>Discover the proven method to reclaim your self-worth and self-respect in any relationship.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Social Intelligence</h3>
+                    <p>Learn advanced techniques that allow you to read people's intentions before they even speak.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Unshakable Confidence</h3>
+                    <p>Build strong, unshakable self-confidence, no matter the circumstances or people you encounter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="text-center">What Readers Are Saying</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"This book completely transformed how I approach relationships. I've learned to set boundaries and recognize toxic patterns before they affect me."</p>
+                    <p class="testimonial-author">- Sarah J.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I've always considered myself a good judge of character, but this book showed me blind spots I never knew I had. Essential reading!"</p>
+                    <p class="testimonial-author">- Michael T.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"After implementing the strategies in this book, my relationships have become more genuine and fulfilling. I wish I had read this years ago."</p>
+                    <p class="testimonial-author">- Jennifer L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-container">
+                <h2>30-Day Satisfaction Guarantee</h2>
+                <p>We're confident this book will transform your relationships. If you're not completely satisfied within 30 days of purchase, we'll provide a full refund, no questions asked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="purchase" class="cta">
+        <div class="container">
+            <h2>Transform Your Relationships Today</h2>
+            <p>Stop being the "nice person" who suffers in silence. Begin your journey toward healthier, more fulfilling relationships now.</p>
+            <a href="https://1y1k0k-by.myshopify.com/products/dont-be-gullible-in-your-relationships-with-others?variant=51116375474489" class="btn btn-large">Get Your Copy Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 SmartRelationships. All rights reserved.</p>
+            <p>This page is for demonstration purposes only.</p>
+        </div>
+    </footer>
 </body>
 </html>
